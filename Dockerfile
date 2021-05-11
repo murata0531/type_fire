@@ -1,5 +1,6 @@
-FROM node:13.8.0-alpine3.11
+FROM node:14.4.0-alpine3.10
 
-ENV NODE_ENV=development
+ENV LANG=C.UTF-8
+ENV TZ=Asia/Tokyo
 
-WORKDIR /app
+WORKDIR /usr/src/fire-app
