@@ -2,32 +2,23 @@ import React from 'react';
 import logo from './logo.svg';
 import './App.css';
 
-(async () => {
-  try {
-    const firebase = require('firebase')
-    const config = {
-      apiKey: '### FIREBASE API KEY ###',
-      authDomain: '### FIREBASE AUTH DOMAIN ###',
-      projectId: '### CLOUD FIRESTORE PROJECT ID ###',
-    }
-    firebase.initializeApp(config)
-    const db = firebase.firestore()
+const admin = require('firebase-admin');
 
-    const userRef = db.collection('users').doc('kpUVKKold2s0rMcDnPTx')
-    const userDoc = await userRef.get()
-    if (userDoc.exists) {
-      console.log(userDoc.id)
-      console.log(userDoc.data())
-      console.log(userDoc.get('name'))
-      console.log(userDoc.get('old'))
-    } else {
-      console.log('No such document!')
-    }
-    await db.app.delete()
-  } catch (err) {
-    console.log(`Error: ${JSON.stringify(err)}`)
-  }
-})()
+var serviceAccount = require("../firebasekey.json");
+
+admin.initializeApp({
+  credential: admin.credential.cert(serviceAccount)
+});
+
+var db = admin.firestore();
+
+var docRef = db.collection('users').doc('alovelace');
+
+var setAda = docRef.set({
+    first: 'Ada',
+    last: 'Lovelace',
+    born: 1815
+});
 
 function App() {
   return (
