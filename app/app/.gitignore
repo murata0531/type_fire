@@ -23,10 +23,10 @@ yarn-debug.log*
 yarn-error.log*
 
 .env
-src/firebasekey.json
-src/firebase.json
-src/firestore.indexes.json
-src/firestore.rules
-src/package.json
-src/package-lock.json
-src/.firebaserc
+/firebasekey.json
+/firebase.json
+/firestore.indexes.json
+/firestore.rules
+/package.json
+/package-lock.json
+/.firebaserc
