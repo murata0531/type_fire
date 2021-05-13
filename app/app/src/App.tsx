@@ -2,10 +2,9 @@ import React from 'react';
 import logo from './logo.svg';
 import './App.css';
 import firebase from 'firebase-admin';
-
 const admin = require('firebase-admin');
 
-var serviceAccount = require("../firebasekey.json");
+var serviceAccount = require("./firebasekey.json");
 
 admin.initializeApp({
   credential: admin.credential.cert(serviceAccount)
