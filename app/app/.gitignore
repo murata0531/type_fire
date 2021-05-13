@@ -24,3 +24,9 @@ yarn-error.log*
 
 .env
 src/firebasekey.json
+src/firebase.json
+src/firestore.indexes.json
+src/firestore.rules
+src/package.json
+src/package-lock.json
+src/.firebaserc
