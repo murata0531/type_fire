@@ -26,3 +26,9 @@ exports.helloWorld = functions.https.onRequest((request: any, response: { send: 
       response.send('not found')
     })
 })
+
+// firestoreトリガー
+exports.helloTrigger = functions.firestore.document('user/employee').onWrite((change: typeof functions, context: typeof functions) => {
+    console.log("Hello Trigger！");
+    return 0;
+});
