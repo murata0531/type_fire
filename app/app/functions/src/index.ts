@@ -30,5 +30,13 @@ exports.helloWorld = functions.https.onRequest((request: any, response: { send: 
 // firestoreトリガー
 exports.helloTrigger = functions.firestore.document('users/employee').onWrite((change: typeof functions, context: typeof functions) => {
     console.log("Hello Trigger！");
+
+    const cityRef = fireStore.collection('users');
+    const doc = cityRef.get();
+    if (!doc.exists) {
+    console.log('No such document!');
+    } else {
+    console.log('Document data:', doc.data());
+    }
     return 0;
 });
